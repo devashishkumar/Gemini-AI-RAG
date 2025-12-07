@@ -16,5 +16,10 @@ GEMINI_AI_API_KEY=your api key
 ### Search text from C# pdf file
 
 ```sh
-1. Open RAG class file added in RAG folder
+1. Open RAG class file added in RAG folder and pass search query in the image provided below in generateOutput method.
 ```
+![Search Query](https://github.com/user-attachments/assets/2a11e8fb-99dc-490e-81af-a4707a94636d)
+
+### Output
+
+![Search Output](https://github.com/user-attachments/assets/168ceeb9-7ce2-419a-9259-c721aff0f6fa)
