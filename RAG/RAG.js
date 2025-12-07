@@ -99,16 +99,12 @@ try {
       };
     }
   }
-
   MemoryVectorStore = LocalMemoryVectorStore;
-  console.warn(
-    "Using LocalMemoryVectorStore fallback — 'langchain/vectorstores/memory' not exported. Results may be less accurate."
-  );
 }
 const path = require("path");
 const fs = require("fs");
 require("dotenv").config();
-const filePath = "C#.pdf"; // <-- CHANGE THIS
+const fileDetails = "C#.pdf";
 class RagClass {
   genAI;
   javascriptGenAi;
@@ -127,7 +123,7 @@ class RagClass {
 
   async vectorStoreInitialize() {
     // 1. Load the PDF
-    const loader = new PDFLoader(filePath);
+    const loader = new PDFLoader(fileDetails);
     const rawDocs = await loader.load();
     // 2. Split the document into chunks
     const splitter = new RecursiveCharacterTextSplitter({
@@ -156,7 +152,7 @@ class RagClass {
     const ai = this.javascriptGenAi;
     const retriever = vectorStore.asRetriever();
 
-    // 1. Retrieve relevant documents (The 'R' in RAG)
+    // 1. Retrieve relevant documents ('R' in RAG)
     const relevantDocs = await retriever.getRelevantDocuments(userQuestion);
     const context = relevantDocs.map((doc) => doc.pageContent).join("\n---\n");
 
@@ -176,7 +172,7 @@ class RagClass {
         ANSWER:
     `;
 
-    // 3. Generate the response (The 'G' in RAG)
+    // 3. Generate the response ('G' in RAG)
     const response = await ai.models.generateContent({
       model: this.geminiAiTwoModel,
       contents: prompt,
@@ -192,10 +188,10 @@ class RagClass {
 
     const question =
       prompt;
-    console.log(`\nQuery: ${question}`);
+    console.log(`\nQuery:\n\n${question}`);
 
-    const answer = await this.runRag(vectorStore, question);
-    console.log(`\nResult:\n${answer}`);
+    const response = await this.runRag(vectorStore, question);
+    console.log(`\nResult:\n\n${response}`);
   }
 }
 
