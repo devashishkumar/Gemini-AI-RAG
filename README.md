@@ -13,7 +13,7 @@ GEMINI_AI_API_KEY=your api key
 5. Execute command 'nodemon start'
 ```
 
-### Search text from C# pdf file
+### Search query from C# pdf file
 
 ```sh
 1. Open RAG class file added in RAG folder and pass search query in the image provided below in generateOutput method.
