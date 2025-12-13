@@ -2,7 +2,7 @@
 
 Node JS, Gemini AI Based RAG Application
 
-### How to setup application ?
+## How to setup application ?
 
 ```sh
 1. Create an API Key using url. (https://aistudio.google.com/app/apikey)
